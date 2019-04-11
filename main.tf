@@ -107,6 +107,11 @@ resource "google_compute_instance" "workers" {
     scopes = ["compute-rw", "storage-ro", "service-management", "service-control", "logging-write", "monitoring"]
   }
 
-  tags  = ["kubernetes-the-hard-way", "worker"]
+  tags = ["kubernetes-the-hard-way", "worker"]
+
+  metadata = {
+    pod-cidr = "10.200.${count.index}.0/24"
+  }
+
   count = 3
 }
