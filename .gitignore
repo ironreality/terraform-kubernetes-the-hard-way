@@ -6,3 +6,5 @@ terraform.tfstate*
 etcd/etcd-v*
 .terraform/**
 **/.envrc
+control-plane/**
+!control-plane/*.sh
